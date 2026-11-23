@@ -24,7 +24,7 @@ describe("CLI release", () => {
   it("supports explicit recursive exclusion globs", () => {
     const d = temp(); mkdirSync(join(d,"a")); writeFileSync(join(d,"a/a.txt"), `password=${secret}`);
     const r = run(d,["scan", ".", "--exclude", "**/*.txt", "--json"]);
-    expect(r.status).toBe(0); expect(JSON.parse(r.stdout).excluded[0].file).toBe("a/a.txt");
+    expect(r.status).toBe(0); expect(JSON.parse(r.stdout).excluded[0].file).toBe(join("a", "a.txt"));
   });
   it("refuses binary directory content as incomplete", () => {
     const d = temp(); writeFileSync(join(d,"a"), Buffer.from([0,1]));
