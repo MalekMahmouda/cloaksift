@@ -1,0 +1,4 @@
+Please review this synthetic configuration.
+password="synthetic-password-123"
+contact=demo@example.org
+internal_host=192.168.4.12
